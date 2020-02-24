@@ -1,0 +1,323 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws.session.ejb/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.session.ejb/">
+
+<xs:element name="InvalidLoginCredentialException" type="tns:InvalidLoginCredentialException"/>
+
+<xs:element name="MemberNotFoundException" type="tns:MemberNotFoundException"/>
+
+<xs:element name="extendBook" type="tns:extendBook"/>
+
+<xs:element name="extendBookResponse" type="tns:extendBookResponse"/>
+
+<xs:element name="getBookAvailability" type="tns:getBookAvailability"/>
+
+<xs:element name="getBookAvailabilityResponse" type="tns:getBookAvailabilityResponse"/>
+
+<xs:element name="getFines" type="tns:getFines"/>
+
+<xs:element name="getFinesResponse" type="tns:getFinesResponse"/>
+
+<xs:element name="hasFine" type="tns:hasFine"/>
+
+<xs:element name="hasFineResponse" type="tns:hasFineResponse"/>
+
+<xs:element name="isAvailable" type="tns:isAvailable"/>
+
+<xs:element name="isAvailableResponse" type="tns:isAvailableResponse"/>
+
+<xs:element name="isLoanedByMember" type="tns:isLoanedByMember"/>
+
+<xs:element name="isLoanedByMemberResponse" type="tns:isLoanedByMemberResponse"/>
+
+<xs:element name="isOverdue" type="tns:isOverdue"/>
+
+<xs:element name="isOverdueResponse" type="tns:isOverdueResponse"/>
+
+<xs:element name="isReserved" type="tns:isReserved"/>
+
+<xs:element name="isReservedByHimself" type="tns:isReservedByHimself"/>
+
+<xs:element name="isReservedByHimselfResponse" type="tns:isReservedByHimselfResponse"/>
+
+<xs:element name="isReservedResponse" type="tns:isReservedResponse"/>
+
+<xs:element name="memberLogin" type="tns:memberLogin"/>
+
+<xs:element name="memberLoginResponse" type="tns:memberLoginResponse"/>
+
+<xs:element name="payFines" type="tns:payFines"/>
+
+<xs:element name="payFinesResponse" type="tns:payFinesResponse"/>
+
+<xs:element name="reserveBook" type="tns:reserveBook"/>
+
+<xs:element name="reserveBookResponse" type="tns:reserveBookResponse"/>
+
+<xs:element name="returnBook" type="tns:returnBook"/>
+
+<xs:element name="returnBookResponse" type="tns:returnBookResponse"/>
+
+<xs:element name="searchBook" type="tns:searchBook"/>
+
+<xs:element name="searchBookResponse" type="tns:searchBookResponse"/>
+
+<xs:element name="viewBooksLent" type="tns:viewBooksLent"/>
+
+<xs:element name="viewBooksLentResponse" type="tns:viewBooksLentResponse"/>
+
+<xs:element name="viewLentBooks" type="tns:viewLentBooks"/>
+
+<xs:element name="viewLentBooksResponse" type="tns:viewLentBooksResponse"/>
+
+<xs:complexType name="viewBooksLent">
+<xs:sequence>
+<xs:element name="identityNum" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="viewBooksLentResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:bookEntity" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="bookEntity">
+<xs:sequence>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="title" type="xs:string" minOccurs="0"/>
+<xs:element name="isbn" type="xs:string" minOccurs="0"/>
+<xs:element name="year" type="xs:int" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="MemberNotFoundException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="searchBook">
+<xs:sequence>
+<xs:element name="search" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="searchBookResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:bookEntity" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getFines">
+<xs:sequence>
+<xs:element name="identityNum" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getFinesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:fineEntity" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="fineEntity">
+<xs:sequence>
+<xs:element name="amount" type="xs:decimal" minOccurs="0"/>
+<xs:element name="bookID" type="xs:long" minOccurs="0"/>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="isAvailable">
+<xs:sequence>
+<xs:element name="bookId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="isAvailableResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBookAvailability">
+<xs:sequence>
+<xs:element name="bookId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getBookAvailabilityResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="isReservedByHimself">
+<xs:sequence>
+<xs:element name="identityNum" type="xs:string" minOccurs="0"/>
+<xs:element name="bookId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="isReservedByHimselfResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="extendBook">
+<xs:sequence>
+<xs:element name="lendingId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="extendBookResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="isReserved">
+<xs:sequence>
+<xs:element name="bookId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="isReservedResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="viewLentBooks">
+<xs:sequence>
+<xs:element name="identityNum" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="viewLentBooksResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:lendingEntity" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="lendingEntity">
+<xs:sequence>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="loanDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="reserveDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="status" type="tns:statusEnum" minOccurs="0"/>
+<xs:element name="dueDate" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="memberLogin">
+<xs:sequence>
+<xs:element name="identityNum" type="xs:string" minOccurs="0"/>
+<xs:element name="securityCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="memberLoginResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:memberEntity" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="memberEntity">
+<xs:sequence>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="fines" type="tns:fineEntity" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="firstName" type="xs:string" minOccurs="0"/>
+<xs:element name="lastName" type="xs:string" minOccurs="0"/>
+<xs:element name="gender" type="xs:string" minOccurs="0"/>
+<xs:element name="age" type="xs:int" minOccurs="0"/>
+<xs:element name="identityNum" type="xs:string" minOccurs="0"/>
+<xs:element name="phone" type="xs:string" minOccurs="0"/>
+<xs:element name="address" type="xs:string" minOccurs="0"/>
+<xs:element name="securityCode" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="InvalidLoginCredentialException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="hasFine">
+<xs:sequence>
+<xs:element name="identityNum" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="hasFineResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="returnBook">
+<xs:sequence>
+<xs:element name="lendingId" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="returnBookResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="isOverdue">
+<xs:sequence>
+<xs:element name="lendingId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="isOverdueResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reserveBook">
+<xs:sequence>
+<xs:element name="identityNum" type="xs:string" minOccurs="0"/>
+<xs:element name="bookId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="reserveBookResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="isLoanedByMember">
+<xs:sequence>
+<xs:element name="identityNum" type="xs:string" minOccurs="0"/>
+<xs:element name="bookId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="isLoanedByMemberResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="payFines">
+<xs:sequence>
+<xs:element name="identityNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="bookId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="payFinesResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:simpleType name="statusEnum">
+<xs:restriction base="xs:string">
+<xs:enumeration value="ACTIVE"/>
+<xs:enumeration value="RESERVED"/>
+<xs:enumeration value="RETURNED"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>

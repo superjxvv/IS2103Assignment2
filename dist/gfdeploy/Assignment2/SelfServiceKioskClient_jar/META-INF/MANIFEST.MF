@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.9.4
+Created-By: 1.8.0_211-b12 (Oracle Corporation)
+X-COMMENT: Main-Class will be added automatically by build
+Class-Path: Assignment2Library.jar lib/Assignment2Library.jar 
+Main-Class: selfservicekioskclient.Main
+
